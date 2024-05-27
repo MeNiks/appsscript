@@ -1,5 +1,7 @@
 ### Distance Calaulation
 
+Google Sheet apps script to find distance between source and destination
+
 ```javascript
 function CALCULATE_DRIVING_DISTANCE(originCell, destinationCell) {
 
