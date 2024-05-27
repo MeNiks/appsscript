@@ -1,27 +1,35 @@
 ### Distance Calaulation
 
-```
-function CALCULATE_DRIVING_DISTANCE(origin, destination) {
-    // origin= \"Pune\"
-    // destination= \"Nanded\"
+```javascript
+function CALCULATE_DRIVING_DISTANCE(originCell, destinationCell) {
+
+    if (!originCell || !destinationCell) {
+      return "";
+    }
+    // originCell= \"Pune\"
+    // destinationCell= \"Nanded\"
     var directions = Maps.newDirectionFinder()
-        .setOrigin(origin)
-        .setDestination(destination)
+        .setOrigin(originCell)
+        .setDestination(destinationCell)
         .setMode(Maps.DirectionFinder.Mode.DRIVING)
         .getDirections();
 
-    var distance = directions.routes[0].legs[0].distance.value;
+    var distance = directions.routes[0].legs[0].distance.text; // .value
 
-    distance /= 1000; // Convert meters to kilometers
-    return Number(distance.toFixed(2));
+    // distance /= 1000; // Convert meters to kilometers
+    return distance;
 }
 
-function CALCULATE_DRIVING_DURATION(origin, destination) {
-    // origin= \"Pune\"
-    // destination= \"Nanded\"
+function CALCULATE_DRIVING_DURATION(originCell, destinationCell) {
+
+    if (!originCell || !destinationCell) {
+      return "";
+    }
+    // originCell= \"Pune\"
+    // destinationCell= \"Nanded\"
     var directions = Maps.newDirectionFinder()
-        .setOrigin(origin)
-        .setDestination(destination)
+        .setOrigin(originCell)
+        .setDestination(destinationCell)
         .setMode(Maps.DirectionFinder.Mode.DRIVING)
         .getDirections();
     return directions.routes[0].legs[0].duration.text
